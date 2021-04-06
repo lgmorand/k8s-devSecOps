@@ -1,0 +1,28 @@
+name: Checkov
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Retrieve source code
+       uses: actions/checkout@v2
+     - name : Install checkov
+       run: |
+          sudo apt update
+          sudo apt install software-properties-common
+          sudo add-apt-repository ppa:deadsnakes/ppa
+          sudo apt install python3.7
+          sudo apt install python3-pip
+          sudo python3.7 -m pip install -U checkov 
+     - name : Scanning manifest folder
+       run: checkov --directory ./manifests -o cli > results.txt
+     - name: Upload artifact
+       uses: actions/upload-artifact@v2
+       with:
+        path: results.txt        
+        name: results                
+
+  
