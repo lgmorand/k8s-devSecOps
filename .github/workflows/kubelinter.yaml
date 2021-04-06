@@ -9,18 +9,11 @@ jobs:
     steps:
      - name: Retrieve source code
        uses: actions/checkout@v2
-     - name : Install kubelint
-       run: |
-          curl -LO https://github.com/stackrox/kube-linter/releases/download/0.1.6/kube-linter-linux.zip
-          unzip kube-linter-linux.zip
-          mv kube-linter /usr/local/bin
      - name: Scan yamls
        id: kube-lint-scan
        uses: stackrox/kube-linter-action@v1
        with:
          directory: ./manifests/
-    #  - name : Scanning manifest folder
-    #    run: kube-linter lint ./manifests/
      - run: kube-linter --help
      - name: Upload artifact
        uses: actions/upload-artifact@v2
