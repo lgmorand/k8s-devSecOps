@@ -24,6 +24,7 @@ jobs:
          directory: ./manifests/
          outputFile: results.txt
        continue-on-error: true
+     - run: ls
      - name: Upload artifact
        uses: actions/upload-artifact@v2
        with:
