@@ -17,8 +17,14 @@ Specifying output (cli, json, junitxml
 checkov --directory manifests -o cli
 ```
 
-Only failed checks
+Only failed checks (only for CLI)
 
 ``` bash
 checkov --directory manifests --quiet
+```
+
+With code extract (only for CLI)
+
+``` bash
+checkov --directory manifests --compact
 ```
