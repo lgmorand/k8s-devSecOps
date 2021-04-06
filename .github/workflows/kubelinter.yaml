@@ -19,10 +19,9 @@ jobs:
      #  shell: bash
      - name: Scan yamls
        id: kube-lint-scan
-       uses: lgmorand/kube-linter-action@main
+       uses: stackrox/kube-linter-action@v1
        with:
          directory: ./manifests/
-         outputFile: results.txt
        continue-on-error: true
      - run: echo ${{ steps.kube-lint-scan.outputs.lint-txt }}"
      - name: Upload artifact
