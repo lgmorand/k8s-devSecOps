@@ -9,20 +9,20 @@ jobs:
     steps:
      - name: Retrieve source code
        uses: actions/checkout@v2
-     - name: Download latest kube-linter
-       run: |
-        LOCATION=$(curl -s https://api.github.com/repos/stackrox/kube-linter/releases/latest \
-        | grep "tag_name" \
-        | awk '{print "https://github.com/stackrox/kube-linter/releases/download/" substr($2, 2, length($2)-3) "/kube-linter-linux.tar.gz"}')
-        curl -s -L -o kube-linter-linux.tar.gz $LOCATION
-        tar -xf kube-linter-linux.tar.gz -C "${GITHUB_WORKSPACE}/"
-       shell: bash
+     #- name: Download latest kube-linter
+     #  run: |
+     #   LOCATION=$(curl -s https://api.github.com/repos/stackrox/kube-linter/releases/latest \
+     #   | grep "tag_name" \
+     #   | awk '{print "https://github.com/stackrox/kube-linter/releases/download/" substr($2, 2, length($2)-3) "/kube-linter-linux.tar.gz"}')
+     #   curl -s -L -o kube-linter-linux.tar.gz $LOCATION
+     #   tar -xf kube-linter-linux.tar.gz -C "${GITHUB_WORKSPACE}/"
+     #  shell: bash
      - name: Scan yamls
        id: kube-lint-scan
        uses: lgmorand/kube-linter-action@main
        with:
          directory: ./manifests/
-         outputFile: ./results.txt
+         outputFile: results.txt
      - name: Upload artifact
        uses: actions/upload-artifact@v2
        with:
