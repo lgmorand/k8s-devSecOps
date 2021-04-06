@@ -24,7 +24,7 @@ jobs:
          directory: ./manifests/
          outputFile: results.txt
        continue-on-error: true
-     - run: ls
+     - run: echo ${{ steps.kube-lint-scan.outputs.lint-txt }}"
      - name: Upload artifact
        uses: actions/upload-artifact@v2
        with:
