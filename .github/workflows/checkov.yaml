@@ -21,7 +21,7 @@ jobs:
        run: checkov --directory manifests
      - name : Scanning manifest folder
        if: ${{ always() }}
-       run: checkov --directory manifests -o junitxml > checkov.xml
+       run: checkov --directory manifests -o json > results.txt
      - name: Upload artifact
        if: ${{ always() }}
        uses: actions/upload-artifact@v2
