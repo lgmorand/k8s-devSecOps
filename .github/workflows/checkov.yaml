@@ -18,7 +18,9 @@ jobs:
           sudo apt install python3-pip
           sudo python3.7 -m pip install -U checkov 
      - name : Scanning manifest folder
-       run: checkov --directory manifests > results.txt
+       run: checkov --directory manifests
+     - name : Scanning manifest folder
+       run: checkov --directory manifests -o junitxml > checkov.xml
      - name: Upload artifact
        uses: actions/upload-artifact@v2
        with:
