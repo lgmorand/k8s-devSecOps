@@ -18,10 +18,7 @@ jobs:
           sudo apt install python3-pip
           sudo python3.7 -m pip install -U checkov 
      - name : Scanning manifest folder
-       run: checkov --directory manifests
-     - name : Scanning manifest folder
-       if: ${{ always() }}
-       run: checkov --directory manifests -o json > results.txt
+       run: checkov --directory manifests -o cli > results.txt
      - name: Upload artifact
        if: ${{ always() }}
        uses: actions/upload-artifact@v2
