@@ -21,9 +21,10 @@ jobs:
      - run: ./kube-linter lint --help
      - name: Scan yamls
        id: kube-lint-scan
-       uses: stackrox/kube-linter-action@v1
+       uses: lgmorand/kube-linter-action@master
        with:
          directory: ./manifests/
+         outputFile: results.txt
      - name: Upload artifact
        uses: actions/upload-artifact@v2
        with:
