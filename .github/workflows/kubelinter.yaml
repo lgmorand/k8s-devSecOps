@@ -21,7 +21,7 @@ jobs:
      - run: ./kube-linter lint --help
      - name: Scan yamls
        id: kube-lint-scan
-       uses: lgmorand/kube-linter-action@master
+       uses: lgmorand/kube-linter-action@main
        with:
          directory: ./manifests/
          outputFile: results.txt
