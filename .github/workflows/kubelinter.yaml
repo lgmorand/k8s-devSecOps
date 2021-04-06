@@ -17,7 +17,8 @@ jobs:
         curl -s -L -o kube-linter-linux.tar.gz $LOCATION
         tar -xf kube-linter-linux.tar.gz -C "${GITHUB_WORKSPACE}/"
        shell: bash
-     - run: kube-linter --help
+     - run: ls
+     - run: ./kube-linter --help
      - name: Scan yamls
        id: kube-lint-scan
        uses: stackrox/kube-linter-action@v1
