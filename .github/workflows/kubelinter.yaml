@@ -22,7 +22,7 @@ jobs:
        uses: lgmorand/kube-linter-action@main
        with:
          directory: ./manifests/
-         outputFile: results.txt
+         outputFile: ./results.txt
      - name: Upload artifact
        uses: actions/upload-artifact@v2
        with:
