@@ -18,14 +18,14 @@ jobs:
           sudo apt install python3-pip
           sudo python3.7 -m pip install -U checkov 
      - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: 'goodwithtech/test-image:v1'
-          format: 'table'
-          exit-code: '1'
-          ignore-unfixed: true
-          vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGH'
+       uses: aquasecurity/trivy-action@master
+       with:
+         image-ref: 'goodwithtech/test-image:v1'
+         format: 'table'
+         exit-code: '1'
+         ignore-unfixed: true
+         vuln-type: 'os,library'
+         severity: 'CRITICAL,HIGH'
      - name: Upload artifact
        if: ${{ always() }}
        uses: actions/upload-artifact@v2
