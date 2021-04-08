@@ -12,6 +12,7 @@ jobs:
      - uses: brpaz/hadolint-action@v1.2.1
        with:
          dockerfile: hadolint/Dockerfile
+       continue-on-error: true
      - name : Scanning manifest folder
        run: docker run --rm -i ghcr.io/hadolint/hadolint < Dockerfile > results.txt
        continue-on-error: true
