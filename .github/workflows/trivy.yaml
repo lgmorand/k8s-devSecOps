@@ -22,8 +22,9 @@ jobs:
        with:
          image-ref: 'goodwithtech/test-image:v1'
          format: 'table'
-         exit-code: '1'
+         exit-code: ''
          ignore-unfixed: true
+         output: 'results.txt'
          vuln-type: 'os,library'
          severity: 'CRITICAL,HIGH'
      - name: Upload artifact
