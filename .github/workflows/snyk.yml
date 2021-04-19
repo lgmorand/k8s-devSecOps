@@ -1,0 +1,29 @@
+name: Snyk
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Retrieve source code
+       uses: actions/checkout@v2
+
+     - name: Create results folder
+       run: mkdir results
+
+     - name: Run Snyk to check Docker image for vulnerabilities
+       uses: snyk/actions/docker@master
+       env:
+         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+       with:
+         image: goodwithtech/test-image:v1 
+         
+         
+     - name: Upload artifact
+       if: ${{ always() }}
+       uses: actions/upload-artifact@v2
+       with:
+        path: ./results      
+        name: results   
