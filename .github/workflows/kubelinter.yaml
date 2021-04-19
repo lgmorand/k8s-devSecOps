@@ -23,6 +23,7 @@ jobs:
        uses: lgmorand/kube-linter-action@main
        with:
          directory: ./manifests/
+         path: results.txt
        continue-on-error: true
 
      - run: echo ${{ steps.kube-lint-scan.outputs.lint-txt2 }}"
