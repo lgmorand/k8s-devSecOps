@@ -11,6 +11,7 @@ Hadolint | Dockerfile linter | [https://github.com/hadolint/hadolint](https://gi
 Checkov | Manifest file good practices scanner | [https://www.checkov.io/](https://www.checkov.io/) | [![Checkov](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/checkov.yaml/badge.svg)](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/checkov.yaml)
 kubelinter | Manifest file good practices scanner  | [https://github.com/stackrox/kube-linter](https://github.com/stackrox/kube-linter) | [![Kube-linter](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/kubelinter.yaml/badge.svg)](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/kubelinter.yaml)
 kubescore | Manifest file good practices scanner | [https://github.com/zegl/kube-score](https://github.com/zegl/kube-score) | [![kubescore](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/kubescore.yml/badge.svg)](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/kubescore.yml)
+snyk | Vulnerability Scanner for Container Images | [https://snyk.io/)(https://snyk.io/) | [![Snyk](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/snyk.yml/badge.svg)](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/snyk.yml)
 
 ## Load testing
 
