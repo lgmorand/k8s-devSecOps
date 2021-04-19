@@ -17,19 +17,20 @@ jobs:
      #   curl -s -L -o kube-linter-linux.tar.gz $LOCATION
      #   tar -xf kube-linter-linux.tar.gz -C "${GITHUB_WORKSPACE}/"
      #  shell: bash
+     - name: Create results folder
+       run: mkdir results
      - name: Scan yamls
        id: kube-lint-scan
        uses: stackrox/kube-linter-action@v1
        with:
          directory: ./manifests/
-         path: /results/kube-linter.txt
+         path: ./results/kube-linter.txt
        continue-on-error: true
 
-     - run: echo ${{ steps.kube-lint-scan.outputs.lint-txt2 }}"
      - name: Upload artifact
        uses: actions/upload-artifact@v2
        with:
-        path: /results      
+        path: ./results      
         name: results                
 
   
