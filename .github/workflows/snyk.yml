@@ -15,15 +15,17 @@ jobs:
 
      - name: Run Snyk to check Docker image for vulnerabilities
        uses: snyk/actions/docker@master
+       continue-on-error: true
        env:
          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
        with:
          image: goodwithtech/test-image:v1 
+         json: true
          
          
      - name: Upload artifact
        if: ${{ always() }}
        uses: actions/upload-artifact@v2
        with:
-        path: ./results      
+        path: snyk.json     
         name: results   
