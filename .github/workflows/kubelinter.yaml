@@ -22,14 +22,14 @@ jobs:
        uses: stackrox/kube-linter-action@v1
        with:
          directory: ./manifests/
-         path: results.txt
+         path: /results/kube-linter.txt
        continue-on-error: true
 
      - run: echo ${{ steps.kube-lint-scan.outputs.lint-txt2 }}"
      - name: Upload artifact
        uses: actions/upload-artifact@v2
        with:
-        path: results.txt        
+        path: /results      
         name: results                
 
   
