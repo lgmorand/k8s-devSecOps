@@ -26,7 +26,7 @@ jobs:
          format: 'table'
          exit-code: ''
          ignore-unfixed: true
-         output: './results/results.txt'
+         output: './results/trivy.txt'
          vuln-type: 'os,library'
          severity: 'CRITICAL,HIGH'
      - name: Upload artifact
@@ -34,4 +34,4 @@ jobs:
        uses: actions/upload-artifact@v2
        with:
         path: ./results      
-        name: results-trivy   
+        name: results   
