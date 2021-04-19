@@ -10,21 +10,14 @@ jobs:
      - name: Retrieve source code
        uses: actions/checkout@v2
      - name : Install kubescore
-       run: |
-          VERSION=$(
-           curl --silent "https://api.github.com/repos/zegl/kube-score/releases/latest" | \
-           grep '"tag_name":' | \
-           sed -E 's/.*"v([^"]+)".*/\1/' \
-          ) && curl -L -o kube-score https://github.com/zegl/kube-score/releases/download/v${VERSION}/kube-score_${VERSION}_linux_amd64
+       run: brew install kube-score/tap/kube-score
      - name: Setup tmate session
        uses: mxschmitt/action-tmate@v3
        timeout-minutes: 15
      - name: Create results folder
        run: mkdir results
      - name : Scanning manifest folder
-       run: |
-          ls -al
-          kube-score score manifests/*.yaml 2>&1 | tee -a ./results/kube-score.txt
+       run: kube-score score manifests/*.yaml 2>&1 | tee -a ./results/kube-score.txt
        continue-on-error: true
      - name: Upload artifact
        if: ${{ always() }}
