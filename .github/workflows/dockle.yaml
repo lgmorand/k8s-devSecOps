@@ -15,11 +15,13 @@ jobs:
            sed -E 's/.*"v([^"]+)".*/\1/' \
           ) && curl -L -o dockle.deb https://github.com/goodwithtech/dockle/releases/download/v${VERSION}/dockle_${VERSION}_Linux-64bit.deb
           sudo dpkg -i dockle.deb && rm dockle.deb
+     - name: Create results folder
+       run: mkdir results
      - name : Scanning image
-       run: dockle goodwithtech/test-image:v1 2>&1 | tee -a results.txt
+       run: dockle goodwithtech/test-image:v1 2>&1 | tee -a ./results/dockle.txt
      - name: Upload artifact
        if: ${{ always() }}
        uses: actions/upload-artifact@v2
        with:
-        path: results.txt        
+        path: ./results
         name: results           
