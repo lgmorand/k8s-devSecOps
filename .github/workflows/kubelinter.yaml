@@ -21,7 +21,7 @@ jobs:
        run: mkdir results
      - name: Scan yamls
        id: kube-lint-scan
-       uses: stackrox/kube-linter-action@v1
+       uses: stackrox/kube-linter-action@v2
        with:
          directory: ./manifests/
          path: ./results/kube-linter.txt
