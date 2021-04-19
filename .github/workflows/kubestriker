@@ -1,0 +1,27 @@
+name: Kubestriker
+
+on:
+  workflow_dispatch:
+    inputs:
+        CLUSTER_NAME:
+          description: 'Cluster Name'     
+          required: true
+          default: 'aks-test'
+        RESOURCE_GROUP:
+          description: 'Resource Group' 
+          required: true
+          default: 'rg-demo-aks'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: AZ Login
+        run: az login --service-principal -u ${{ secrets.AZ_LOGIN }} -p ${{ secrets.AZ_PASSWORD }} --tenant ${{ secrets.AZ_TENANT }}
+        
+      - name: Auth to k8s
+        run: az aks get-credentials --name ${{ github.event.inputs.CLUSTER_NAME }} --resource-group ${{ github.event.inputs.RESOURCE_GROUP }}
+
