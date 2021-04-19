@@ -24,12 +24,12 @@ jobs:
          format: 'table'
          exit-code: ''
          ignore-unfixed: true
-         output: '/results/results.txt'
+         output: './results/results.txt'
          vuln-type: 'os,library'
          severity: 'CRITICAL,HIGH'
      - name: Upload artifact
        if: ${{ always() }}
        uses: actions/upload-artifact@v2
        with:
-        path: /results      
+        path: ./results      
         name: results-trivy   
