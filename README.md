@@ -12,6 +12,8 @@ Checkov | Manifest file good practices scanner | [https://www.checkov.io/](https
 kubelinter | Manifest file good practices scanner  | [https://github.com/stackrox/kube-linter](https://github.com/stackrox/kube-linter) | [![Kube-linter](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/kubelinter.yaml/badge.svg)](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/kubelinter.yaml)
 kubescore | Manifest file good practices scanner | [https://github.com/zegl/kube-score](https://github.com/zegl/kube-score) | [![kubescore](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/kubescore.yml/badge.svg)](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/kubescore.yml)
 snyk | Vulnerability Scanner for Container Images | [https://snyk.io/)(https://snyk.io/) | [![Snyk](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/snyk.yml/badge.svg?branch=main)](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/snyk.yml)
+kubebench | CIS benchmark for cluster | [https://github.com/aquasecurity/kube-hunter](https://github.com/aquasecurity/kube-hunter) |
+kubehunter | Goods practices scanner | [https://github.com/aquasecurity/kube-bench](https://github.com/aquasecurity/kube-bench) |
 
 ## Load testing
 
