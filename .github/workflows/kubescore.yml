@@ -18,6 +18,7 @@ jobs:
        run: kube-score score manifests/*.yaml 2>&1 | tee -a ./results/kube-score.txt
        continue-on-error: true
      - name: kube-score action step
+       uses: piraces/kube-score-ga@v0.1.2
        with:
          manifests-folders: './manifests/*.yaml'
          ignore-exit-code: 'true'
