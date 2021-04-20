@@ -18,9 +18,8 @@ jobs:
        run: kube-score score manifests/*.yaml 2>&1 | tee -a ./results/kube-score.txt
        continue-on-error: true
      - name: kube-score action step
-       uses: ./ # Uses an action in the root directory
        with:
-         manifests-folders: 'manifests/*.yaml'
+         manifests-folders: './manifests/*.yaml'
          ignore-exit-code: 'true'
          output-file: './result/output.txt'
      - name: Upload artifact
