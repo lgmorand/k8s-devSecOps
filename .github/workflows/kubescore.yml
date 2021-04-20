@@ -22,23 +22,12 @@ jobs:
        with:
          manifests-folders: './manifests/*.yaml'
          ignore-exit-code: 'true'
-         output-file: 'result/output.txt'
-     - name: kube-score action step
-       uses: piraces/kube-score-ga@v0.1.2
-       with:
-         manifests-folders: './manifests/*.yaml'
-         ignore-exit-code: 'true'
-         output-file: 'output.txt'
+         output-file: './results/output.txt'
      - name: Upload artifact
        if: ${{ always() }}
        uses: actions/upload-artifact@v2
        with:
         path: ./results
         name: results                
-     - name: Upload artifact
-       if: ${{ always() }}
-       uses: actions/upload-artifact@v2
-       with:
-        path: output.txt
-        name: result3     
+
   
