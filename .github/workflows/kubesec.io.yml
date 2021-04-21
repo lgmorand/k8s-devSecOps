@@ -9,7 +9,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run kubesec scanner
-        uses: controlplaneio/kubesec-action@master
+        uses: controlplaneio/kubesec-action@v0.0.2
         continue-on-error: true
         with:
           input: ./manifests/test.yaml
