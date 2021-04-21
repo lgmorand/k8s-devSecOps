@@ -33,8 +33,8 @@ jobs:
           PODNAME=$(kubectl get pods -n kubehunter | grep kube-hunter| awk '{print $2}' |head -n 1)
           kubectl logs $PODNAME > kubehunter.txt
           
-       - name: Upload artifact
-         uses: actions/upload-artifact@v2
-         with:
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
           path: kubehunter.txt
           name: results    
