@@ -1,7 +1,13 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kubehunter
+---
 apiVersion: batch/v1
 kind: Job
 metadata:
   name: kube-hunter
+  namespace: kubehunter
 spec:
   template:
     spec:
