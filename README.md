@@ -14,7 +14,7 @@ kubescore | Manifest file good practices scanner | [https://github.com/zegl/kube
 snyk | Vulnerability Scanner for Container Images | [https://snyk.io/](https://snyk.io/) | [![Snyk](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/snyk.yml/badge.svg?branch=main)](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/snyk.yml)
 kubebench | CIS benchmark for cluster | [https://github.com/aquasecurity/kube-bench](https://github.com/aquasecurity/kube-bench) |
 kubehunter | Good practices scanner | [https://github.com/aquasecurity/kube-hunter](https://github.com/aquasecurity/kube-hunter) | [![kube-hunter](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/kubehunter.yml/badge.svg)](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/kubehunter.yml)
-kubesec | manifest scanning | [https://kubesec.io/](https://kubesec.io/) | [![kubesec.io](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/kubesec.io.yml/badge.svg)](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/kubesec.io.yml)
+kubesec | Manifest file good practices scanner | [https://kubesec.io/](https://kubesec.io/) | [![kubesec.io](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/kubesec.io.yml/badge.svg)](https://github.com/lgmorand/k8s-devSecOps/actions/workflows/kubesec.io.yml)
 
 ## Load testing
 
