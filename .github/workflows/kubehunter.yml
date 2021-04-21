@@ -28,10 +28,15 @@ jobs:
       - name: Run scan
         run: kubectl create -f ./kubehunter/job.yaml
         
+      - name: Wait / Sleep
+        uses: jakejarvis/wait-action@v0.1.0
+        with:
+         time: '30s'
+        
       - name: retrieve logs
         run: | 
-          PODNAME=$(kubectl get pods -n kubehunter | grep kube-hunter| awk '{print $2}' |head -n 1)
-          kubectl logs $PODNAME > kubehunter.txt
+          PODNAME=$(kubectl get pods -n kubehunter | grep kube-hunter| awk '{print $1}' |head -n 1)
+          kubectl logs $PODNAME -n kubehunter > kubehunter.txt
           
       - name: Upload artifact
         uses: actions/upload-artifact@v2
