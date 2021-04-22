@@ -1,0 +1,8 @@
+-:1 DL3007 [1m[93mwarning[0m: Using latest is prone to errors if the image will ever update. Pin the version explicitly to a release tag
+-:2 DL3008 [1m[93mwarning[0m: Pin versions in apt get install. Instead of `apt-get install <package>` use `apt-get install <package>=<version>`
+-:2 DL3015 [92minfo[0m: Avoid additional packages by specifying `--no-install-recommends`
+-:2 DL3009 [92minfo[0m: Delete the apt-get lists after installing something
+-:2 SC2102 [92minfo[0m: Ranges can only match single chars (mentioned due to duplicates).
+-:2 DL3013 [1m[93mwarning[0m: Pin versions in pip. Instead of `pip install <package>` use `pip install <package>==<version>` or `pip install --requirement <requirements file>`
+-:2 DL3042 [1m[93mwarning[0m: Avoid use of cache directory with pip. Use `pip install --no-cache-dir <package>`
+-:9 DL3025 [1m[93mwarning[0m: Use arguments JSON notation for CMD and ENTRYPOINT arguments
