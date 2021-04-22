@@ -1,0 +1,11 @@
+2021-04-22 07:00:35,000 INFO kube_hunter.modules.report.collector Started hunting
+2021-04-22 07:00:35,001 INFO kube_hunter.modules.report.collector Discovering Open Kubernetes Services
+2021-04-22 07:00:35,010 INFO kube_hunter.modules.report.collector Found vulnerability "Read access to pod's service account token" in Local to Pod (kube-hunter-z6fsd)
+2021-04-22 07:00:35,011 INFO kube_hunter.modules.report.collector Found vulnerability "CAP_NET_RAW Enabled" in Local to Pod (kube-hunter-z6fsd)
+2021-04-22 07:00:35,012 INFO kube_hunter.modules.report.collector Found vulnerability "Access to pod's secrets" in Local to Pod (kube-hunter-z6fsd)
+2021-04-22 07:00:35,040 INFO kube_hunter.modules.report.collector Found vulnerability "Azure Metadata Exposure" in Local to Pod (kube-hunter-z6fsd)
+2021-04-22 07:00:35,214 INFO kube_hunter.modules.report.collector Found open service "Kubelet API" at 10.240.0.4:10250
+2021-04-22 07:00:35,267 INFO kube_hunter.modules.report.collector Found open service "Kubelet API" at 10.240.0.35:10250
+2021-04-22 07:00:35,317 INFO kube_hunter.modules.report.collector Found open service "Kubelet API" at 10.240.0.66:10250
+2021-04-22 07:00:35,320 INFO kube_hunter.modules.report.collector Found open service "Kubelet API" at 10.240.0.67:10250
+2021-04-22 07:00:35,404 INFO kube_hunter.modules.report.collector Found open service "Metrics Server" at 10.240.0.86:443
