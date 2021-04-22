@@ -1,0 +1,32 @@
+2021-04-19T07:32:23.323Z	[33mWARN[0m	A new version  is now available! You have v0.3.11.
+[31mFATAL[0m	- [36mCIS-DI-0009[0m: Use COPY instead of ADD in Dockerfile
+	* Use COPY : /bin/sh -c #(nop) ADD file:81c0a803075715d1a6b4f75a29f8a01b21cc170cfc1bff6702317d1be2fe71a3 in /app/credentials.json 
+[31mFATAL[0m	- [36mCIS-DI-0010[0m: Do not store credential in ENVIRONMENT vars/files
+	* Suspicious filename found : app/credentials.json 
+	* Suspicious ENV key found : MYSQL_PASSWD
+[31mFATAL[0m	- [36mDKL-DI-0005[0m: Clear apt-get caches
+	* Use 'rm -rf /var/lib/apt/lists' after 'apt-get install' : /bin/sh -c apt-get update && apt-get install -y git
+[31mFATAL[0m	- [36mDKL-LI-0001[0m: Avoid empty password
+	* No password user found! username : nopasswd
+[33mWARN[0m	- [36mCIS-DI-0001[0m: Create a user for the container
+	* Last user should not be root
+[35mINFO[0m	- [36mCIS-DI-0005[0m: Enable Content trust for Docker
+	* export DOCKER_CONTENT_TRUST=1 before docker pull/build
+[35mINFO[0m	- [36mCIS-DI-0006[0m: Add HEALTHCHECK instruction to the container image
+	* not found HEALTHCHECK statement
+[35mINFO[0m	- [36mCIS-DI-0008[0m: Confirm safety of setuid/setgid files
+	* setuid file: urwxr-xr-x usr/lib/openssh/ssh-keysign
+	* setgid file: grwxr-xr-x sbin/unix_chkpwd
+	* setuid file: urwxr-xr-x bin/ping
+	* setuid file: urwxr-xr-x usr/bin/passwd
+	* setgid file: grwxr-xr-x usr/bin/expiry
+	* setuid file: urwxr-xr-x usr/bin/newgrp
+	* setgid file: grwxr-xr-x usr/bin/ssh-agent
+	* setuid file: urwxr-xr-x usr/bin/gpasswd
+	* setuid file: urwxr-xr-x usr/bin/chsh
+	* setgid file: grwxr-xr-x usr/bin/chage
+	* setuid file: urwxr-xr-x bin/su
+	* setgid file: grwxr-xr-x usr/bin/wall
+	* setuid file: urwxr-xr-x usr/bin/chfn
+	* setuid file: urwxr-xr-x bin/umount
+	* setuid file: urwxr-xr-x bin/mount
