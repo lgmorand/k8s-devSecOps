@@ -1,0 +1,45 @@
+name: kube-bench
+
+on:
+  workflow_dispatch:
+    inputs:
+        CLUSTER_NAME:
+          description: 'Cluster Name'     
+          required: true
+          default: 'aks-test'
+        RESOURCE_GROUP:
+          description: 'Resource Group' 
+          required: true
+          default: 'rg-demo-aks'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: AZ Login
+        run: az login --service-principal -u ${{ secrets.AZ_LOGIN }} -p ${{ secrets.AZ_PASSWORD }} --tenant ${{ secrets.AZ_TENANT }}
+        
+      - name: Auth to k8s
+        run: az aks get-credentials --name ${{ github.event.inputs.CLUSTER_NAME }} --resource-group ${{ github.event.inputs.RESOURCE_GROUP }}
+      
+      - name: Run scan
+        run: kubectl create -f ./kubebench/job.yaml
+        
+      - name: Wait / Sleep
+        uses: jakejarvis/wait-action@v0.1.0
+        with:
+         time: '30s'
+        
+      - name: retrieve logs
+        run: | 
+          PODNAME=$(kubectl get pods | grep kube-bench| awk '{print $1}' |head -n 1)
+          kubectl logs $PODNAME > kubehunter.txt
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          path: kube-bench.txt
+          name: results    
