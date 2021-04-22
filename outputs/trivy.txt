@@ -1,0 +1,409 @@
++---------------------+------------------+----------+----------------------------+-----------------------------------+---------------------------------------+
+|       LIBRARY       | VULNERABILITY ID | SEVERITY |     INSTALLED VERSION      |           FIXED VERSION           |                 TITLE                 |
++---------------------+------------------+----------+----------------------------+-----------------------------------+---------------------------------------+
+| git                 | CVE-2019-1353    | CRITICAL | 1:2.11.0-3+deb9u4          | 1:2.11.0-3+deb9u5                 | git: NTFS protections inactive        |
+|                     |                  |          |                            |                                   | when running Git in the               |
+|                     |                  |          |                            |                                   | Windows Subsystem for...              |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-1353  |
++                     +------------------+----------+                            +                                   +---------------------------------------+
+|                     | CVE-2019-1349    | HIGH     |                            |                                   | git: Recursive submodule cloning      |
+|                     |                  |          |                            |                                   | allows using git directory twice      |
+|                     |                  |          |                            |                                   | with synonymous directory...          |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-1349  |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2019-1352    |          |                            |                                   | git: Files inside the .git            |
+|                     |                  |          |                            |                                   | directory may be overwritten          |
+|                     |                  |          |                            |                                   | during cloning via...                 |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-1352  |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2019-1387    |          |                            |                                   | git: Remote code execution            |
+|                     |                  |          |                            |                                   | in recursive clones                   |
+|                     |                  |          |                            |                                   | with nested submodules                |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-1387  |
++                     +------------------+          +                            +-----------------------------------+---------------------------------------+
+|                     | CVE-2020-11008   |          |                            | 1:2.11.0-3+deb9u7                 | git: Crafted URL containing           |
+|                     |                  |          |                            |                                   | new lines, empty host                 |
+|                     |                  |          |                            |                                   | or lacks a scheme...                  |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-11008 |
++                     +------------------+          +                            +-----------------------------------+---------------------------------------+
+|                     | CVE-2020-5260    |          |                            | 1:2.11.0-3+deb9u6                 | git: Crafted URL containing new       |
+|                     |                  |          |                            |                                   | lines can cause credential leak       |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-5260  |
++---------------------+------------------+----------+                            +-----------------------------------+---------------------------------------+
+| git-man             | CVE-2019-1353    | CRITICAL |                            | 1:2.11.0-3+deb9u5                 | git: NTFS protections inactive        |
+|                     |                  |          |                            |                                   | when running Git in the               |
+|                     |                  |          |                            |                                   | Windows Subsystem for...              |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-1353  |
++                     +------------------+----------+                            +                                   +---------------------------------------+
+|                     | CVE-2019-1349    | HIGH     |                            |                                   | git: Recursive submodule cloning      |
+|                     |                  |          |                            |                                   | allows using git directory twice      |
+|                     |                  |          |                            |                                   | with synonymous directory...          |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-1349  |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2019-1352    |          |                            |                                   | git: Files inside the .git            |
+|                     |                  |          |                            |                                   | directory may be overwritten          |
+|                     |                  |          |                            |                                   | during cloning via...                 |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-1352  |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2019-1387    |          |                            |                                   | git: Remote code execution            |
+|                     |                  |          |                            |                                   | in recursive clones                   |
+|                     |                  |          |                            |                                   | with nested submodules                |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-1387  |
++                     +------------------+          +                            +-----------------------------------+---------------------------------------+
+|                     | CVE-2020-11008   |          |                            | 1:2.11.0-3+deb9u7                 | git: Crafted URL containing           |
+|                     |                  |          |                            |                                   | new lines, empty host                 |
+|                     |                  |          |                            |                                   | or lacks a scheme...                  |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-11008 |
++                     +------------------+          +                            +-----------------------------------+---------------------------------------+
+|                     | CVE-2020-5260    |          |                            | 1:2.11.0-3+deb9u6                 | git: Crafted URL containing new       |
+|                     |                  |          |                            |                                   | lines can cause credential leak       |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-5260  |
++---------------------+------------------+          +----------------------------+-----------------------------------+---------------------------------------+
+| krb5-locales        | CVE-2020-28196   |          | 1.15-1+deb9u1              | 1.15-1+deb9u2                     | krb5: unbounded recursion via an      |
+|                     |                  |          |                            |                                   | ASN.1-encoded Kerberos message        |
+|                     |                  |          |                            |                                   | in lib/krb5/asn.1/asn1_encode.c       |
+|                     |                  |          |                            |                                   | may lead...                           |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-28196 |
++---------------------+------------------+----------+----------------------------+-----------------------------------+---------------------------------------+
+| libbsd0             | CVE-2019-20367   | CRITICAL | 0.8.3-1                    | 0.8.3-1+deb9u1                    | nlist.c in libbsd before              |
+|                     |                  |          |                            |                                   | 0.10.0 has an out-of-bounds           |
+|                     |                  |          |                            |                                   | read during a comparison...           |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-20367 |
++---------------------+------------------+          +----------------------------+-----------------------------------+---------------------------------------+
+| libcurl3-gnutls     | CVE-2019-5481    |          | 7.52.1-5+deb9u9            | 7.52.1-5+deb9u10                  | curl: double free due to              |
+|                     |                  |          |                            |                                   | subsequent call of realloc()          |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-5481  |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2019-5482    |          |                            |                                   | curl: heap buffer overflow in         |
+|                     |                  |          |                            |                                   | function tftp_receive_packet()        |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-5482  |
++                     +------------------+----------+                            +                                   +---------------------------------------+
+|                     | CVE-2019-5436    | HIGH     |                            |                                   | curl: TFTP receive                    |
+|                     |                  |          |                            |                                   | heap buffer overflow in               |
+|                     |                  |          |                            |                                   | tftp_receive_packet() function        |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-5436  |
++                     +------------------+          +                            +-----------------------------------+---------------------------------------+
+|                     | CVE-2020-8177    |          |                            | 7.52.1-5+deb9u11                  | curl: Incorrect argument              |
+|                     |                  |          |                            |                                   | check can allow remote servers        |
+|                     |                  |          |                            |                                   | to overwrite local files...           |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-8177  |
++                     +------------------+          +                            +-----------------------------------+---------------------------------------+
+|                     | CVE-2020-8231    |          |                            | 7.52.1-5+deb9u12                  | curl: Expired pointer                 |
+|                     |                  |          |                            |                                   | dereference via multi API with        |
+|                     |                  |          |                            |                                   | CURLOPT_CONNECT_ONLY option set       |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-8231  |
++                     +------------------+          +                            +-----------------------------------+---------------------------------------+
+|                     | CVE-2020-8285    |          |                            | 7.52.1-5+deb9u13                  | curl: Malicious FTP server can        |
+|                     |                  |          |                            |                                   | trigger stack overflow when           |
+|                     |                  |          |                            |                                   | CURLOPT_CHUNK_BGN_FUNCTION            |
+|                     |                  |          |                            |                                   | is used...                            |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-8285  |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-8286    |          |                            |                                   | curl: Inferior OCSP verification      |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-8286  |
++---------------------+------------------+          +----------------------------+-----------------------------------+---------------------------------------+
+| libexpat1           | CVE-2018-20843   |          | 2.2.0-2+deb9u1             | 2.2.0-2+deb9u2                    | expat: large number of                |
+|                     |                  |          |                            |                                   | colons in input makes parser          |
+|                     |                  |          |                            |                                   | consume high amount...                |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2018-20843 |
++---------------------+------------------+          +----------------------------+-----------------------------------+---------------------------------------+
+| libgnutls30         | CVE-2019-3829    |          | 3.5.8-5+deb9u4             | 3.5.8-5+deb9u5                    | gnutls: use-after-free/double-free    |
+|                     |                  |          |                            |                                   | in certificate verification           |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-3829  |
++---------------------+------------------+          +----------------------------+-----------------------------------+---------------------------------------+
+| libgssapi-krb5-2    | CVE-2020-28196   |          | 1.15-1+deb9u1              | 1.15-1+deb9u2                     | krb5: unbounded recursion via an      |
+|                     |                  |          |                            |                                   | ASN.1-encoded Kerberos message        |
+|                     |                  |          |                            |                                   | in lib/krb5/asn.1/asn1_encode.c       |
+|                     |                  |          |                            |                                   | may lead...                           |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-28196 |
++---------------------+                  +          +                            +                                   +                                       +
+| libk5crypto3        |                  |          |                            |                                   |                                       |
+|                     |                  |          |                            |                                   |                                       |
+|                     |                  |          |                            |                                   |                                       |
+|                     |                  |          |                            |                                   |                                       |
+|                     |                  |          |                            |                                   |                                       |
++---------------------+                  +          +                            +                                   +                                       +
+| libkrb5-3           |                  |          |                            |                                   |                                       |
+|                     |                  |          |                            |                                   |                                       |
+|                     |                  |          |                            |                                   |                                       |
+|                     |                  |          |                            |                                   |                                       |
+|                     |                  |          |                            |                                   |                                       |
++---------------------+                  +          +                            +                                   +                                       +
+| libkrb5support0     |                  |          |                            |                                   |                                       |
+|                     |                  |          |                            |                                   |                                       |
+|                     |                  |          |                            |                                   |                                       |
+|                     |                  |          |                            |                                   |                                       |
+|                     |                  |          |                            |                                   |                                       |
++---------------------+------------------+          +----------------------------+-----------------------------------+---------------------------------------+
+| libldap-2.4-2       | CVE-2019-13565   |          | 2.4.44+dfsg-5+deb9u2       | 2.4.44+dfsg-5+deb9u3              | openldap: ACL restrictions            |
+|                     |                  |          |                            |                                   | bypass due to sasl_ssf                |
+|                     |                  |          |                            |                                   | value being set permanently           |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-13565 |
++                     +------------------+          +                            +-----------------------------------+---------------------------------------+
+|                     | CVE-2020-12243   |          |                            | 2.4.44+dfsg-5+deb9u4              | openldap: denial of service           |
+|                     |                  |          |                            |                                   | via nested boolean expressions        |
+|                     |                  |          |                            |                                   | in LDAP search filters...             |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-12243 |
++                     +------------------+          +                            +-----------------------------------+---------------------------------------+
+|                     | CVE-2020-25692   |          |                            | 2.4.44+dfsg-5+deb9u5              | openldap: NULL pointer dereference    |
+|                     |                  |          |                            |                                   | for unauthenticated packet in slapd   |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-25692 |
++                     +------------------+          +                            +-----------------------------------+---------------------------------------+
+|                     | CVE-2020-25709   |          |                            | 2.4.44+dfsg-5+deb9u6              | openldap: assertion failure in        |
+|                     |                  |          |                            |                                   | Certificate List syntax validation    |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-25709 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-25710   |          |                            |                                   | openldap: assertion failure in CSN    |
+|                     |                  |          |                            |                                   | normalization with invalid input      |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-25710 |
++                     +------------------+          +                            +-----------------------------------+---------------------------------------+
+|                     | CVE-2020-36221   |          |                            | 2.4.44+dfsg-5+deb9u7              | openldap: Integer underflow           |
+|                     |                  |          |                            |                                   | in serialNumberAndIssuerCheck         |
+|                     |                  |          |                            |                                   | in schema_init.c                      |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-36221 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-36222   |          |                            |                                   | openldap: Assertion failure in        |
+|                     |                  |          |                            |                                   | slapd in the saslAuthzTo validation   |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-36222 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-36223   |          |                            |                                   | openldap: Out-of-bounds               |
+|                     |                  |          |                            |                                   | read in Values Return Filter          |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-36223 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-36224   |          |                            |                                   | openldap: Invalid pointer free        |
+|                     |                  |          |                            |                                   | in the saslAuthzTo processing         |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-36224 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-36225   |          |                            |                                   | openldap: Double free in              |
+|                     |                  |          |                            |                                   | the saslAuthzTo processing            |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-36225 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-36226   |          |                            |                                   | openldap: Denial of service           |
+|                     |                  |          |                            |                                   | via length miscalculation             |
+|                     |                  |          |                            |                                   | in slap_parse_user                    |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-36226 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-36227   |          |                            |                                   | openldap: Infinite loop in slapd with |
+|                     |                  |          |                            |                                   | the cancel_extop Cancel operation     |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-36227 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-36228   |          |                            |                                   | openldap: Integer underflow           |
+|                     |                  |          |                            |                                   | in issuerAndThisUpdateCheck           |
+|                     |                  |          |                            |                                   | in schema_init.c                      |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-36228 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-36229   |          |                            |                                   | openldap: Type confusion              |
+|                     |                  |          |                            |                                   | in ad_keystring in ad.c               |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-36229 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-36230   |          |                            |                                   | openldap: Assertion failure in        |
+|                     |                  |          |                            |                                   | ber_next_element in decode.c          |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-36230 |
++                     +------------------+          +                            +-----------------------------------+---------------------------------------+
+|                     | CVE-2021-27212   |          |                            | 2.4.44+dfsg-5+deb9u8              | openldap: Assertion                   |
+|                     |                  |          |                            |                                   | failure in slapd in the               |
+|                     |                  |          |                            |                                   | issuerAndThisUpdateCheck function     |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2021-27212 |
++---------------------+------------------+          +                            +-----------------------------------+---------------------------------------+
+| libldap-common      | CVE-2019-13565   |          |                            | 2.4.44+dfsg-5+deb9u3              | openldap: ACL restrictions            |
+|                     |                  |          |                            |                                   | bypass due to sasl_ssf                |
+|                     |                  |          |                            |                                   | value being set permanently           |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-13565 |
++                     +------------------+          +                            +-----------------------------------+---------------------------------------+
+|                     | CVE-2020-12243   |          |                            | 2.4.44+dfsg-5+deb9u4              | openldap: denial of service           |
+|                     |                  |          |                            |                                   | via nested boolean expressions        |
+|                     |                  |          |                            |                                   | in LDAP search filters...             |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-12243 |
++                     +------------------+          +                            +-----------------------------------+---------------------------------------+
+|                     | CVE-2020-25692   |          |                            | 2.4.44+dfsg-5+deb9u5              | openldap: NULL pointer dereference    |
+|                     |                  |          |                            |                                   | for unauthenticated packet in slapd   |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-25692 |
++                     +------------------+          +                            +-----------------------------------+---------------------------------------+
+|                     | CVE-2020-25709   |          |                            | 2.4.44+dfsg-5+deb9u6              | openldap: assertion failure in        |
+|                     |                  |          |                            |                                   | Certificate List syntax validation    |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-25709 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-25710   |          |                            |                                   | openldap: assertion failure in CSN    |
+|                     |                  |          |                            |                                   | normalization with invalid input      |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-25710 |
++                     +------------------+          +                            +-----------------------------------+---------------------------------------+
+|                     | CVE-2020-36221   |          |                            | 2.4.44+dfsg-5+deb9u7              | openldap: Integer underflow           |
+|                     |                  |          |                            |                                   | in serialNumberAndIssuerCheck         |
+|                     |                  |          |                            |                                   | in schema_init.c                      |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-36221 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-36222   |          |                            |                                   | openldap: Assertion failure in        |
+|                     |                  |          |                            |                                   | slapd in the saslAuthzTo validation   |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-36222 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-36223   |          |                            |                                   | openldap: Out-of-bounds               |
+|                     |                  |          |                            |                                   | read in Values Return Filter          |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-36223 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-36224   |          |                            |                                   | openldap: Invalid pointer free        |
+|                     |                  |          |                            |                                   | in the saslAuthzTo processing         |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-36224 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-36225   |          |                            |                                   | openldap: Double free in              |
+|                     |                  |          |                            |                                   | the saslAuthzTo processing            |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-36225 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-36226   |          |                            |                                   | openldap: Denial of service           |
+|                     |                  |          |                            |                                   | via length miscalculation             |
+|                     |                  |          |                            |                                   | in slap_parse_user                    |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-36226 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-36227   |          |                            |                                   | openldap: Infinite loop in slapd with |
+|                     |                  |          |                            |                                   | the cancel_extop Cancel operation     |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-36227 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-36228   |          |                            |                                   | openldap: Integer underflow           |
+|                     |                  |          |                            |                                   | in issuerAndThisUpdateCheck           |
+|                     |                  |          |                            |                                   | in schema_init.c                      |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-36228 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-36229   |          |                            |                                   | openldap: Type confusion              |
+|                     |                  |          |                            |                                   | in ad_keystring in ad.c               |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-36229 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-36230   |          |                            |                                   | openldap: Assertion failure in        |
+|                     |                  |          |                            |                                   | ber_next_element in decode.c          |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-36230 |
++                     +------------------+          +                            +-----------------------------------+---------------------------------------+
+|                     | CVE-2021-27212   |          |                            | 2.4.44+dfsg-5+deb9u8              | openldap: Assertion                   |
+|                     |                  |          |                            |                                   | failure in slapd in the               |
+|                     |                  |          |                            |                                   | issuerAndThisUpdateCheck function     |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2021-27212 |
++---------------------+------------------+          +----------------------------+-----------------------------------+---------------------------------------+
+| libnghttp2-14       | CVE-2019-9511    |          | 1.18.1-1                   | 1.18.1-1+deb9u1                   | HTTP/2: large amount of data          |
+|                     |                  |          |                            |                                   | requests leads to denial of service   |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-9511  |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2019-9513    |          |                            |                                   | HTTP/2: flood using PRIORITY          |
+|                     |                  |          |                            |                                   | frames results in excessive           |
+|                     |                  |          |                            |                                   | resource consumption                  |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-9513  |
++---------------------+------------------+          +----------------------------+-----------------------------------+---------------------------------------+
+| libp11-kit0         | CVE-2020-29361   |          | 0.23.3-2                   | 0.23.3-2+deb9u1                   | p11-kit: integer overflow when        |
+|                     |                  |          |                            |                                   | allocating memory for arrays          |
+|                     |                  |          |                            |                                   | or attributes and object...           |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-29361 |
++---------------------+------------------+          +----------------------------+-----------------------------------+---------------------------------------+
+| libperl5.24         | CVE-2020-10543   |          | 5.24.1-3+deb9u5            | 5.24.1-3+deb9u7                   | perl: heap-based buffer               |
+|                     |                  |          |                            |                                   | overflow in regular expression        |
+|                     |                  |          |                            |                                   | compiler leads to DoS                 |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-10543 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-10878   |          |                            |                                   | perl: corruption of intermediate      |
+|                     |                  |          |                            |                                   | language state of compiled            |
+|                     |                  |          |                            |                                   | regular expression due to...          |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-10878 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-12723   |          |                            |                                   | perl: corruption of intermediate      |
+|                     |                  |          |                            |                                   | language state of compiled            |
+|                     |                  |          |                            |                                   | regular expression due to...          |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-12723 |
++---------------------+------------------+          +----------------------------+-----------------------------------+---------------------------------------+
+| libsasl2-2          | CVE-2019-19906   |          | 2.1.27~101-g0780600+dfsg-3 | 2.1.27~101-g0780600+dfsg-3+deb9u1 | cyrus-sasl: denial of service         |
+|                     |                  |          |                            |                                   | in _sasl_add_string function          |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-19906 |
++---------------------+                  +          +                            +                                   +                                       +
+| libsasl2-modules    |                  |          |                            |                                   |                                       |
+|                     |                  |          |                            |                                   |                                       |
+|                     |                  |          |                            |                                   |                                       |
++---------------------+                  +          +                            +                                   +                                       +
+| libsasl2-modules-db |                  |          |                            |                                   |                                       |
+|                     |                  |          |                            |                                   |                                       |
+|                     |                  |          |                            |                                   |                                       |
++---------------------+------------------+          +----------------------------+-----------------------------------+---------------------------------------+
+| libssl1.0.2         | CVE-2021-23840   |          | 1.0.2r-1~deb9u1            | 1.0.2u-1~deb9u4                   | openssl: integer                      |
+|                     |                  |          |                            |                                   | overflow in CipherUpdate              |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2021-23840 |
++---------------------+------------------+          +----------------------------+-----------------------------------+---------------------------------------+
+| libssl1.1           | CVE-2019-1543    |          | 1.1.0j-1~deb9u1            | 1.1.0k-1~deb9u1                   | openssl: ChaCha20-Poly1305            |
+|                     |                  |          |                            |                                   | with long nonces                      |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-1543  |
++---------------------+------------------+          +----------------------------+-----------------------------------+---------------------------------------+
+| libx11-6            | CVE-2020-14363   |          | 2:1.6.4-3+deb9u1           | 2:1.6.4-3+deb9u3                  | libX11: integer overflow leads        |
+|                     |                  |          |                            |                                   | to double free in locale handling     |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-14363 |
++---------------------+                  +          +                            +                                   +                                       +
+| libx11-data         |                  |          |                            |                                   |                                       |
+|                     |                  |          |                            |                                   |                                       |
+|                     |                  |          |                            |                                   |                                       |
++---------------------+------------------+----------+----------------------------+-----------------------------------+---------------------------------------+
+| login               | CVE-2017-12424   | CRITICAL | 1:4.4-4.1                  | 1:4.4-4.1+deb9u1                  | shadow-utils: Buffer                  |
+|                     |                  |          |                            |                                   | overflow via newusers tool            |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2017-12424 |
++                     +------------------+----------+                            +                                   +---------------------------------------+
+|                     | CVE-2017-20002   | HIGH     |                            |                                   | The Debian shadow package             |
+|                     |                  |          |                            |                                   | before 1:4.5-1 for Shadow             |
+|                     |                  |          |                            |                                   | incorrectly lists pts/0 and...        |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2017-20002 |
++---------------------+------------------+          +----------------------------+-----------------------------------+---------------------------------------+
+| openssl             | CVE-2019-1543    |          | 1.1.0j-1~deb9u1            | 1.1.0k-1~deb9u1                   | openssl: ChaCha20-Poly1305            |
+|                     |                  |          |                            |                                   | with long nonces                      |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-1543  |
++---------------------+------------------+----------+----------------------------+-----------------------------------+---------------------------------------+
+| passwd              | CVE-2017-12424   | CRITICAL | 1:4.4-4.1                  | 1:4.4-4.1+deb9u1                  | shadow-utils: Buffer                  |
+|                     |                  |          |                            |                                   | overflow via newusers tool            |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2017-12424 |
++                     +------------------+----------+                            +                                   +---------------------------------------+
+|                     | CVE-2017-20002   | HIGH     |                            |                                   | The Debian shadow package             |
+|                     |                  |          |                            |                                   | before 1:4.5-1 for Shadow             |
+|                     |                  |          |                            |                                   | incorrectly lists pts/0 and...        |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2017-20002 |
++---------------------+------------------+          +----------------------------+-----------------------------------+---------------------------------------+
+| patch               | CVE-2018-20969   |          | 2.7.5-1+deb9u1             | 2.7.5-1+deb9u2                    | patch: do_ed_script in pch.c does not |
+|                     |                  |          |                            |                                   | block strings beginning with a !...   |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2018-20969 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2019-13638   |          |                            |                                   | patch: OS shell command injection     |
+|                     |                  |          |                            |                                   | when processing crafted patch files   |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2019-13638 |
++---------------------+------------------+          +----------------------------+-----------------------------------+---------------------------------------+
+| perl                | CVE-2020-10543   |          | 5.24.1-3+deb9u5            | 5.24.1-3+deb9u7                   | perl: heap-based buffer               |
+|                     |                  |          |                            |                                   | overflow in regular expression        |
+|                     |                  |          |                            |                                   | compiler leads to DoS                 |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-10543 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-10878   |          |                            |                                   | perl: corruption of intermediate      |
+|                     |                  |          |                            |                                   | language state of compiled            |
+|                     |                  |          |                            |                                   | regular expression due to...          |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-10878 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-12723   |          |                            |                                   | perl: corruption of intermediate      |
+|                     |                  |          |                            |                                   | language state of compiled            |
+|                     |                  |          |                            |                                   | regular expression due to...          |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-12723 |
++---------------------+------------------+          +                            +                                   +---------------------------------------+
+| perl-base           | CVE-2020-10543   |          |                            |                                   | perl: heap-based buffer               |
+|                     |                  |          |                            |                                   | overflow in regular expression        |
+|                     |                  |          |                            |                                   | compiler leads to DoS                 |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-10543 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-10878   |          |                            |                                   | perl: corruption of intermediate      |
+|                     |                  |          |                            |                                   | language state of compiled            |
+|                     |                  |          |                            |                                   | regular expression due to...          |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-10878 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-12723   |          |                            |                                   | perl: corruption of intermediate      |
+|                     |                  |          |                            |                                   | language state of compiled            |
+|                     |                  |          |                            |                                   | regular expression due to...          |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-12723 |
++---------------------+------------------+          +                            +                                   +---------------------------------------+
+| perl-modules-5.24   | CVE-2020-10543   |          |                            |                                   | perl: heap-based buffer               |
+|                     |                  |          |                            |                                   | overflow in regular expression        |
+|                     |                  |          |                            |                                   | compiler leads to DoS                 |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-10543 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-10878   |          |                            |                                   | perl: corruption of intermediate      |
+|                     |                  |          |                            |                                   | language state of compiled            |
+|                     |                  |          |                            |                                   | regular expression due to...          |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-10878 |
++                     +------------------+          +                            +                                   +---------------------------------------+
+|                     | CVE-2020-12723   |          |                            |                                   | perl: corruption of intermediate      |
+|                     |                  |          |                            |                                   | language state of compiled            |
+|                     |                  |          |                            |                                   | regular expression due to...          |
+|                     |                  |          |                            |                                   | -->avd.aquasec.com/nvd/cve-2020-12723 |
++---------------------+------------------+----------+----------------------------+-----------------------------------+---------------------------------------+
