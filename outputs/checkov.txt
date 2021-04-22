@@ -1,0 +1,348 @@
+
+       _               _              
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V / 
+  \___|_| |_|\___|\___|_|\_\___/ \_/  
+                                      
+By bridgecrew.io | version: 2.0.55 
+
+kubernetes scan results:
+
+Passed checks: 73, Failed checks: 15, Skipped checks: 0
+
+Check: CKV_K8S_40: "Containers should run as a high UID to avoid host conflict"
+	FAILED for resource: Pod.security-context-demo.default
+	File: /test.yaml:1-25
+	Guide: https://docs.bridgecrew.io/docs/bc_k8s_37
+
+		1  | apiVersion: v1
+		2  | kind: Pod
+		3  | metadata:
+		4  |   name: security-context-demo
+		5  | spec:
+		6  |   securityContext:
+		7  |     runAsUser: 1000
+		8  |     runAsGroup: 3000
+		9  |     fsGroup: 2000
+		10 |   volumes:
+		11 |   - name: sec-ctx-vol
+		12 |     emptyDir: {}
+		13 |   containers:
+		14 |   - name: sec-ctx-demo
+		15 |     image: busybox
+		16 |     resources:
+		17 |       requests:
+		18 |         memory: "64Mi"
+		19 |         cpu: "250m"
+		20 |     command: [ "sh", "-c", "sleep 1h" ]
+		21 |     volumeMounts:
+		22 |     - name: sec-ctx-vol
+		23 |       mountPath: /data/demo
+		24 |     securityContext:
+		25 |       allowPrivilegeEscalation: false
+
+
+Check: CKV_K8S_31: "Ensure that the seccomp profile is set to docker/default or runtime/default"
+	FAILED for resource: Pod.security-context-demo.default
+	File: /test.yaml:1-25
+	Guide: https://docs.bridgecrew.io/docs/bc_k8s_29
+
+		1  | apiVersion: v1
+		2  | kind: Pod
+		3  | metadata:
+		4  |   name: security-context-demo
+		5  | spec:
+		6  |   securityContext:
+		7  |     runAsUser: 1000
+		8  |     runAsGroup: 3000
+		9  |     fsGroup: 2000
+		10 |   volumes:
+		11 |   - name: sec-ctx-vol
+		12 |     emptyDir: {}
+		13 |   containers:
+		14 |   - name: sec-ctx-demo
+		15 |     image: busybox
+		16 |     resources:
+		17 |       requests:
+		18 |         memory: "64Mi"
+		19 |         cpu: "250m"
+		20 |     command: [ "sh", "-c", "sleep 1h" ]
+		21 |     volumeMounts:
+		22 |     - name: sec-ctx-vol
+		23 |       mountPath: /data/demo
+		24 |     securityContext:
+		25 |       allowPrivilegeEscalation: false
+
+
+Check: CKV_K8S_21: "The default namespace should not be used"
+	FAILED for resource: Pod.security-context-demo.default
+	File: /test.yaml:1-25
+	Guide: https://docs.bridgecrew.io/docs/bc_k8s_20
+
+		1  | apiVersion: v1
+		2  | kind: Pod
+		3  | metadata:
+		4  |   name: security-context-demo
+		5  | spec:
+		6  |   securityContext:
+		7  |     runAsUser: 1000
+		8  |     runAsGroup: 3000
+		9  |     fsGroup: 2000
+		10 |   volumes:
+		11 |   - name: sec-ctx-vol
+		12 |     emptyDir: {}
+		13 |   containers:
+		14 |   - name: sec-ctx-demo
+		15 |     image: busybox
+		16 |     resources:
+		17 |       requests:
+		18 |         memory: "64Mi"
+		19 |         cpu: "250m"
+		20 |     command: [ "sh", "-c", "sleep 1h" ]
+		21 |     volumeMounts:
+		22 |     - name: sec-ctx-vol
+		23 |       mountPath: /data/demo
+		24 |     securityContext:
+		25 |       allowPrivilegeEscalation: false
+
+
+Check: CKV_K8S_38: "Ensure that Service Account Tokens are only mounted where necessary"
+	FAILED for resource: Pod.security-context-demo.default
+	File: /test.yaml:1-25
+	Guide: https://docs.bridgecrew.io/docs/bc_k8s_35
+
+		1  | apiVersion: v1
+		2  | kind: Pod
+		3  | metadata:
+		4  |   name: security-context-demo
+		5  | spec:
+		6  |   securityContext:
+		7  |     runAsUser: 1000
+		8  |     runAsGroup: 3000
+		9  |     fsGroup: 2000
+		10 |   volumes:
+		11 |   - name: sec-ctx-vol
+		12 |     emptyDir: {}
+		13 |   containers:
+		14 |   - name: sec-ctx-demo
+		15 |     image: busybox
+		16 |     resources:
+		17 |       requests:
+		18 |         memory: "64Mi"
+		19 |         cpu: "250m"
+		20 |     command: [ "sh", "-c", "sleep 1h" ]
+		21 |     volumeMounts:
+		22 |     - name: sec-ctx-vol
+		23 |       mountPath: /data/demo
+		24 |     securityContext:
+		25 |       allowPrivilegeEscalation: false
+
+
+Check: CKV_K8S_11: "CPU limits should be set"
+	FAILED for resource: Pod.security-context-demo.default (container 0) - sec-ctx-demo
+	File: /test.yaml:14-25
+	Guide: https://docs.bridgecrew.io/docs/bc_k8s_10
+
+		14 |   - name: sec-ctx-demo
+		15 |     image: busybox
+		16 |     resources:
+		17 |       requests:
+		18 |         memory: "64Mi"
+		19 |         cpu: "250m"
+		20 |     command: [ "sh", "-c", "sleep 1h" ]
+		21 |     volumeMounts:
+		22 |     - name: sec-ctx-vol
+		23 |       mountPath: /data/demo
+		24 |     securityContext:
+		25 |       allowPrivilegeEscalation: false
+
+
+Check: CKV_K8S_8: "Liveness Probe Should be Configured"
+	FAILED for resource: Pod.security-context-demo.default (container 0) - sec-ctx-demo
+	File: /test.yaml:14-25
+	Guide: https://docs.bridgecrew.io/docs/bc_k8s_7
+
+		14 |   - name: sec-ctx-demo
+		15 |     image: busybox
+		16 |     resources:
+		17 |       requests:
+		18 |         memory: "64Mi"
+		19 |         cpu: "250m"
+		20 |     command: [ "sh", "-c", "sleep 1h" ]
+		21 |     volumeMounts:
+		22 |     - name: sec-ctx-vol
+		23 |       mountPath: /data/demo
+		24 |     securityContext:
+		25 |       allowPrivilegeEscalation: false
+
+
+Check: CKV_K8S_106: "Ensure that the --terminated-pod-gc-threshold argument is set as appropriate"
+	FAILED for resource: Pod.security-context-demo.default (container 0) - sec-ctx-demo
+	File: /test.yaml:14-25
+
+		14 |   - name: sec-ctx-demo
+		15 |     image: busybox
+		16 |     resources:
+		17 |       requests:
+		18 |         memory: "64Mi"
+		19 |         cpu: "250m"
+		20 |     command: [ "sh", "-c", "sleep 1h" ]
+		21 |     volumeMounts:
+		22 |     - name: sec-ctx-vol
+		23 |       mountPath: /data/demo
+		24 |     securityContext:
+		25 |       allowPrivilegeEscalation: false
+
+
+Check: CKV_K8S_9: "Readiness Probe Should be Configured"
+	FAILED for resource: Pod.security-context-demo.default (container 0) - sec-ctx-demo
+	File: /test.yaml:14-25
+	Guide: https://docs.bridgecrew.io/docs/bc_k8s_8
+
+		14 |   - name: sec-ctx-demo
+		15 |     image: busybox
+		16 |     resources:
+		17 |       requests:
+		18 |         memory: "64Mi"
+		19 |         cpu: "250m"
+		20 |     command: [ "sh", "-c", "sleep 1h" ]
+		21 |     volumeMounts:
+		22 |     - name: sec-ctx-vol
+		23 |       mountPath: /data/demo
+		24 |     securityContext:
+		25 |       allowPrivilegeEscalation: false
+
+
+Check: CKV_K8S_28: "Minimize the admission of containers with the NET_RAW capability"
+	FAILED for resource: Pod.security-context-demo.default (container 0) - sec-ctx-demo
+	File: /test.yaml:14-25
+	Guide: https://docs.bridgecrew.io/docs/bc_k8s_27
+
+		14 |   - name: sec-ctx-demo
+		15 |     image: busybox
+		16 |     resources:
+		17 |       requests:
+		18 |         memory: "64Mi"
+		19 |         cpu: "250m"
+		20 |     command: [ "sh", "-c", "sleep 1h" ]
+		21 |     volumeMounts:
+		22 |     - name: sec-ctx-vol
+		23 |       mountPath: /data/demo
+		24 |     securityContext:
+		25 |       allowPrivilegeEscalation: false
+
+
+Check: CKV_K8S_107: "Ensure that the --profiling argument is set to false"
+	FAILED for resource: Pod.security-context-demo.default (container 0) - sec-ctx-demo
+	File: /test.yaml:14-25
+
+		14 |   - name: sec-ctx-demo
+		15 |     image: busybox
+		16 |     resources:
+		17 |       requests:
+		18 |         memory: "64Mi"
+		19 |         cpu: "250m"
+		20 |     command: [ "sh", "-c", "sleep 1h" ]
+		21 |     volumeMounts:
+		22 |     - name: sec-ctx-vol
+		23 |       mountPath: /data/demo
+		24 |     securityContext:
+		25 |       allowPrivilegeEscalation: false
+
+
+Check: CKV_K8S_43: "Image should use digest"
+	FAILED for resource: Pod.security-context-demo.default (container 0) - sec-ctx-demo
+	File: /test.yaml:14-25
+	Guide: https://docs.bridgecrew.io/docs/bc_k8s_39
+
+		14 |   - name: sec-ctx-demo
+		15 |     image: busybox
+		16 |     resources:
+		17 |       requests:
+		18 |         memory: "64Mi"
+		19 |         cpu: "250m"
+		20 |     command: [ "sh", "-c", "sleep 1h" ]
+		21 |     volumeMounts:
+		22 |     - name: sec-ctx-vol
+		23 |       mountPath: /data/demo
+		24 |     securityContext:
+		25 |       allowPrivilegeEscalation: false
+
+
+Check: CKV_K8S_13: "Memory limits should be set"
+	FAILED for resource: Pod.security-context-demo.default (container 0) - sec-ctx-demo
+	File: /test.yaml:14-25
+	Guide: https://docs.bridgecrew.io/docs/bc_k8s_12
+
+		14 |   - name: sec-ctx-demo
+		15 |     image: busybox
+		16 |     resources:
+		17 |       requests:
+		18 |         memory: "64Mi"
+		19 |         cpu: "250m"
+		20 |     command: [ "sh", "-c", "sleep 1h" ]
+		21 |     volumeMounts:
+		22 |     - name: sec-ctx-vol
+		23 |       mountPath: /data/demo
+		24 |     securityContext:
+		25 |       allowPrivilegeEscalation: false
+
+
+Check: CKV_K8S_14: "Image Tag should be fixed - not latest or blank"
+	FAILED for resource: Pod.security-context-demo.default (container 0) - sec-ctx-demo
+	File: /test.yaml:14-25
+	Guide: https://docs.bridgecrew.io/docs/bc_k8s_13
+
+		14 |   - name: sec-ctx-demo
+		15 |     image: busybox
+		16 |     resources:
+		17 |       requests:
+		18 |         memory: "64Mi"
+		19 |         cpu: "250m"
+		20 |     command: [ "sh", "-c", "sleep 1h" ]
+		21 |     volumeMounts:
+		22 |     - name: sec-ctx-vol
+		23 |       mountPath: /data/demo
+		24 |     securityContext:
+		25 |       allowPrivilegeEscalation: false
+
+
+Check: CKV_K8S_37: "Minimize the admission of containers with capabilities assigned"
+	FAILED for resource: Pod.security-context-demo.default (container 0) - sec-ctx-demo
+	File: /test.yaml:14-25
+	Guide: https://docs.bridgecrew.io/docs/bc_k8s_34
+
+		14 |   - name: sec-ctx-demo
+		15 |     image: busybox
+		16 |     resources:
+		17 |       requests:
+		18 |         memory: "64Mi"
+		19 |         cpu: "250m"
+		20 |     command: [ "sh", "-c", "sleep 1h" ]
+		21 |     volumeMounts:
+		22 |     - name: sec-ctx-vol
+		23 |       mountPath: /data/demo
+		24 |     securityContext:
+		25 |       allowPrivilegeEscalation: false
+
+
+Check: CKV_K8S_22: "Use read-only filesystem for containers where possible"
+	FAILED for resource: Pod.security-context-demo.default (container 0) - sec-ctx-demo
+	File: /test.yaml:14-25
+	Guide: https://docs.bridgecrew.io/docs/bc_k8s_21
+
+		14 |   - name: sec-ctx-demo
+		15 |     image: busybox
+		16 |     resources:
+		17 |       requests:
+		18 |         memory: "64Mi"
+		19 |         cpu: "250m"
+		20 |     command: [ "sh", "-c", "sleep 1h" ]
+		21 |     volumeMounts:
+		22 |     - name: sec-ctx-vol
+		23 |       mountPath: /data/demo
+		24 |     securityContext:
+		25 |       allowPrivilegeEscalation: false
+
+
