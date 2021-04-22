@@ -36,7 +36,8 @@ jobs:
       - name: retrieve logs
         run: | 
           PODNAME=$(kubectl get pods | grep kube-bench| awk '{print $1}' |head -n 1)
-          kubectl logs $PODNAME > kubehunter.txt
+          kubectl logs $PODNAME > kube-bench.txt
+          cat kube-bench.txt
           
       - name: Upload artifact
         uses: actions/upload-artifact@v2
