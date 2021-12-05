@@ -1,6 +1,15 @@
 name: kubescape.io
 on:
   workflow_dispatch:
+    inputs:
+        CLUSTER_NAME:
+          description: 'Cluster Name'     
+          required: true
+          default: 'aks-test'
+        RESOURCE_GROUP:
+          description: 'Resource Group' 
+          required: true
+          default: 'rg-demo-aks'
 jobs:
   Scan:
     runs-on: ubuntu-latest
