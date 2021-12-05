@@ -40,15 +40,15 @@ jobs:
         
       - name: Install SelectMenu
         run: |
-          pip install --pre SelectMenu==1.0.0b2
+          python3 -m pip install --pre SelectMenu==1.0.0b2
           
       - name: Install prompt-toolkit
         run: |
-          pip install prompt-toolkit==1.0.15 
+          python3 -m pip install prompt-toolkit==1.0.15 
           
       - name: Install striker
         run: |
-          pip install kubestriker
+          python3 -m pip install kubestriker
       
       - name: Run striker
         run: |
