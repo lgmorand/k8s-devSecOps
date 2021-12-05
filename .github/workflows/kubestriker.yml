@@ -40,5 +40,8 @@ jobs:
       - name: Install striker
         run: |
           pip install kubestriker
+      
+      - name: Run striker
+        run: |
           python -m kubestriker
           
