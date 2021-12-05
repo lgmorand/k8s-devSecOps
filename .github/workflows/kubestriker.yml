@@ -32,7 +32,13 @@ jobs:
         run: |
           python3 -m venv env
           source env/bin/activate
+      
+      - name: Install striker
+        run: |
           pip install prompt-toolkit==1.0.15 
+          
+      - name: Install striker
+        run: |
           pip install kubestriker
           python -m kubestriker
           
