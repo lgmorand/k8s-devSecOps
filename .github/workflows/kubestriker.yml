@@ -35,7 +35,7 @@ jobs:
           
       - name: Install SelectMenu
         run: |
-          pip install SelectMenu==1.0.0b2
+          pip install --pre SelectMenu==1.0.0b2
           
       - name: Install prompt-toolkit
         run: |
