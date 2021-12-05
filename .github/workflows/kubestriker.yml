@@ -36,7 +36,7 @@ jobs:
       - name: Install striker
         run: |
           pip install prompt-toolkit==1.0.15 
-          pip install SelectMenu
+          pip install SelectMenu --pre
           
       - name: Install striker
         run: |
