@@ -1,0 +1,334 @@
+[control: Allow privilege escalation] failed 😥
+Description: Attackers may gain access to a container and uplift its privilege to enable excessive capabilities.
+Failed:
+   Namespace calico-system
+      Deployment - calico-kube-controllers
+      Deployment - calico-typha
+      DaemonSet - calico-node
+   Namespace kube-system
+      Deployment - aci-connector-linux
+      Deployment - coredns-autoscaler
+      Deployment - konnectivity-agent
+      Deployment - metrics-server
+      Deployment - omsagent-rs
+      DaemonSet - azure-ip-masq-agent
+      DaemonSet - kube-proxy
+      DaemonSet - omsagent
+      DaemonSet - omsagent-win
+   Namespace tigera-operator
+      Deployment - tigera-operator
+Summary - Passed:5   Excluded:0   Failed:13   Total:18
+Remediation: If your application does not need it, make sure the allowPrivilegeEscalation field of the securityContext is set to false.
+
+[control: Allowed hostPath] failed 😥
+Description: Mounting host directory to the container can be abused to get access to sensitive data and gain persistence on the host machine.
+Failed:
+   Namespace kube-system
+      Deployment - aci-connector-linux
+      Deployment - omsagent-rs
+      DaemonSet - azure-ip-masq-agent
+      DaemonSet - kube-proxy
+      DaemonSet - omsagent
+      DaemonSet - omsagent-win
+   Namespace calico-system
+      DaemonSet - calico-node
+Summary - Passed:7   Excluded:0   Failed:7   Total:14
+Remediation: Refrain from using host path mount.
+
+[control: Applications credentials in configuration files] failed 😥
+Description: Attackers who have access to configuration files can steal the stored secrets and use them. This control checks if ConfigMaps or pod specifications have sensitive information in their configuration.
+Failed:
+   Namespace kube-node-lease
+      ConfigMap - kube-root-ca.crt
+   Namespace kube-public
+      ConfigMap - kube-root-ca.crt
+   Namespace tigera-operator
+      ConfigMap - kube-root-ca.crt
+      ConfigMap - typha-ca
+   Namespace calico-system
+      Deployment - calico-typha
+      DaemonSet - calico-node
+      ConfigMap - kube-root-ca.crt
+      ConfigMap - typha-ca
+   Namespace kube-system
+      Deployment - aci-connector-linux
+      ConfigMap - extension-apiserver-authentication
+      ConfigMap - kube-root-ca.crt
+   Namespace default
+      ConfigMap - kube-root-ca.crt
+Summary - Passed:20   Excluded:0   Failed:12   Total:32
+Remediation: Use Kubernetes secrets or Key Management Systems to store credentials.
+
+[control: Automatic mapping of service account] failed 😥
+Description: Potential attacker may gain access to a POD and steal its service account token. Therefore, it is recommended to disable automatic mapping of the service account tokens in service account configuration and enable it only for PODs that need to use them.
+Failed:
+   Namespace kube-node-lease
+      ServiceAccount - default
+   Namespace kube-public
+      ServiceAccount - default
+   Namespace kube-system
+      ServiceAccount - aci-connector-linux
+      ServiceAccount - attachdetach-controller
+      ServiceAccount - azure-cloud-provider
+      ServiceAccount - bootstrap-signer
+      ServiceAccount - certificate-controller
+      ServiceAccount - clusterrole-aggregation-controller
+      ServiceAccount - coredns
+      ServiceAccount - coredns-autoscaler
+      ServiceAccount - cronjob-controller
+      ServiceAccount - daemon-set-controller
+      ServiceAccount - default
+      ServiceAccount - deployment-controller
+      ServiceAccount - disruption-controller
+      ServiceAccount - endpoint-controller
+      ServiceAccount - endpointslice-controller
+      ServiceAccount - endpointslicemirroring-controller
+      ServiceAccount - expand-controller
+      ServiceAccount - generic-garbage-collector
+      ServiceAccount - horizontal-pod-autoscaler
+      ServiceAccount - job-controller
+      ServiceAccount - kube-proxy
+      ServiceAccount - metrics-server
+      ServiceAccount - namespace-controller
+      ServiceAccount - node-controller
+      ServiceAccount - omsagent
+      ServiceAccount - persistent-volume-binder
+      ServiceAccount - pod-garbage-collector
+      ServiceAccount - pv-protection-controller
+      ServiceAccount - pvc-protection-controller
+      ServiceAccount - replicaset-controller
+      ServiceAccount - replication-controller
+      ServiceAccount - resourcequota-controller
+      ServiceAccount - root-ca-cert-publisher
+      ServiceAccount - service-account-controller
+      ServiceAccount - service-controller
+      ServiceAccount - statefulset-controller
+      ServiceAccount - token-cleaner
+      ServiceAccount - ttl-controller
+   Namespace tigera-operator
+      ServiceAccount - default
+      ServiceAccount - tigera-operator
+   Namespace calico-system
+      ServiceAccount - calico-kube-controllers
+      ServiceAccount - calico-node
+      ServiceAccount - calico-typha
+      ServiceAccount - default
+   Namespace default
+      ServiceAccount - default
+Summary - Passed:0   Excluded:0   Failed:47   Total:47
+Remediation: Disable automatic mounting of service account tokens to PODs either at the service account level or at the individual POD level, by specifying the automountServiceAccountToken: false. Note that POD level takes precedence.
+
+[control: CVE-2021-25741 - Using symlink for arbitrary host file system access.] passed 👍
+Description: A user may be able to create a container with subPath or subPathExpr volume mounts to access files & directories anywhere on the host filesystem. Following Kubernetes versions are affected: v1.22.0 - v1.22.1, v1.21.0 - v1.21.4, v1.20.0 - v1.20.10, version v1.19.14 and lower. This control checks the vulnerable versions and the actual usage of the subPath feature in all Pods in the cluster.
+Summary - Passed:18   Excluded:0   Failed:0   Total:18
+
+[control: CVE-2021-25742-nginx-ingress-snippet-annotation-vulnerability] passed 👍
+Description: Security issue in ingress-nginx where a user that can create or update ingress objects can use the custom snippets feature to obtain all secrets in the cluster (see more at https://github.com/kubernetes/ingress-nginx/issues/7837)
+Summary - Passed:27   Excluded:0   Failed:0   Total:27
+
+[control: Cluster-admin binding] failed 😥
+Description: Attackers who have cluster admin permissions (can perform any action on any resource), can take advantage of their privileges for malicious activities. This control determines which subjects have cluster admin permissions.
+Failed:
+      ClusterRole - cluster-admin
+      ClusterRoleBinding - aci-connector-linux
+      ClusterRoleBinding - aks-cluster-admin-binding
+      ClusterRoleBinding - cluster-admin
+Summary - Passed:149   Excluded:0   Failed:4   Total:153
+Remediation: You should apply least privilege principle. Make sure cluster admin permissions are granted only when it is absolutely necessary. Don't use subjects with such high permissions for daily operations.
+
+[control: Container hostPort] failed 😥
+Description: Configuring hostPort limits you to a particular port, and if any two workloads that specify the same HostPort they cannot be deployed to the same node. Therefore, if the number of replica of such workload is higher than the number of nodes, the deployment will fail.
+Failed:
+   Namespace calico-system
+      Deployment - calico-typha
+Summary - Passed:13   Excluded:0   Failed:1   Total:14
+Remediation: Avoid usage of hostPort unless it is absolutely necessary. Use NodePort / ClusterIP instead.
+
+[control: Control plane hardening] resources not found 😕
+Description: Kubernetes control plane API is running with non-secure port enabled which allows attackers to gain unprotected access to the cluster.
+[control: Dangerous capabilities] passed 👍
+Description: Giving dangerous and unnecessary LINUX capabilities to a container can increase the impact of the container compromise. This control identifies all the PODs with dangerous capabilities such as SYS_ADMIN and others.
+Summary - Passed:14   Excluded:0   Failed:0   Total:14
+
+[control: Exec into container] failed 😥
+Description: Attackers with relevant permissions can run malicious commands in the context of legitimate containers in the cluster using “kubectl exec” command. This control determines which subjects have permissions to use this command.
+Failed:
+      ClusterRole - aks-service
+      ClusterRoleBinding - aks-service-rolebinding
+      ClusterRole - cluster-admin
+      ClusterRoleBinding - aci-connector-linux
+      ClusterRoleBinding - aks-cluster-admin-binding
+      ClusterRoleBinding - cluster-admin
+Summary - Passed:147   Excluded:0   Failed:6   Total:153
+Remediation: It is recommended to prohibit “kubectl exec” command in production environments. It is also recommended not to use subjects with this permission for daily cluster operations.
+
+[control: Exposed dashboard] passed 👍
+Description: Kubernetes dashboard versions before v2.0.1 do not support user authentication. If exposed externally, it will allow unauthenticated remote management of the cluster. This control checks presence of the kubernetes-dashboard deployment and its version number.
+Summary - Passed:15   Excluded:0   Failed:0   Total:15
+
+[control: Host PID/IPC privileges] passed 👍
+Description: Containers should be as isolated as possible from the host machine. The hostPID and hostIPC fields in Kubernetes may excessively expose the host to potentially malicious actions.
+Summary - Passed:14   Excluded:0   Failed:0   Total:14
+
+[control: Immutable container filesystem] failed 😥
+Description: Mutable container filesystem can be abused to inject malicious code or data into containers. Use immutable (read-only) filesystem to limit potential attacks.
+Failed:
+   Namespace tigera-operator
+      Deployment - tigera-operator
+   Namespace calico-system
+      Deployment - calico-kube-controllers
+      Deployment - calico-typha
+      DaemonSet - calico-node
+   Namespace kube-system
+      Deployment - aci-connector-linux
+      Deployment - coredns-autoscaler
+      Deployment - konnectivity-agent
+      Deployment - metrics-server
+      Deployment - omsagent-rs
+      DaemonSet - azure-ip-masq-agent
+      DaemonSet - kube-proxy
+      DaemonSet - omsagent
+      DaemonSet - omsagent-win
+Summary - Passed:1   Excluded:0   Failed:13   Total:14
+Remediation: Set the filesystem of the container to read-only when possible (POD securityContext, readOnlyRootFilesystem: true). If containers application needs to write into the filesystem, it is recommended to mount secondary filesystems for specific directories where application require write access.
+
+[control: Ingress and Egress blocked] failed 😥
+Description: Disable Ingress and Egress traffic on all pods wherever possible. It is recommended to define restrictive network policy on all new PODs, and then enable sources/destinations that this POD must communicate with.
+Failed:
+   Namespace kube-system
+      Deployment - konnectivity-agent
+      Deployment - aci-connector-linux
+      Deployment - coredns
+      Deployment - coredns-autoscaler
+      Deployment - metrics-server
+      Deployment - omsagent-rs
+      DaemonSet - azure-ip-masq-agent
+      DaemonSet - kube-proxy
+      DaemonSet - omsagent
+      DaemonSet - omsagent-win
+   Namespace calico-system
+      Deployment - calico-kube-controllers
+      Deployment - calico-typha
+      DaemonSet - calico-node
+   Namespace tigera-operator
+      Deployment - tigera-operator
+Summary - Passed:1   Excluded:0   Failed:14   Total:15
+Remediation: Define a network policy that restricts ingress and egress connections.
+
+[control: Insecure capabilities] failed 😥
+Description: Giving insecure or excsessive capabilities to a container can increase the impact of the container compromise. This control identifies all the PODs with dangerous capabilities (see documentation pages for details).
+Failed:
+   Namespace kube-system
+      Deployment - coredns
+Summary - Passed:13   Excluded:0   Failed:1   Total:14
+Remediation: Remove all insecure capabilities which aren’t necessary for the container.
+
+[control: Linux hardening] failed 😥
+Description: Containers may be given more privileges than they actually need. This can increase the potential impact of a container compromise.
+Failed:
+   Namespace calico-system
+      Deployment - calico-kube-controllers
+      Deployment - calico-typha
+      DaemonSet - calico-node
+   Namespace kube-system
+      Deployment - aci-connector-linux
+      Deployment - coredns-autoscaler
+      Deployment - konnectivity-agent
+      Deployment - metrics-server
+      Deployment - omsagent-rs
+      DaemonSet - azure-ip-masq-agent
+      DaemonSet - kube-proxy
+      DaemonSet - omsagent
+      DaemonSet - omsagent-win
+   Namespace tigera-operator
+      Deployment - tigera-operator
+Summary - Passed:1   Excluded:0   Failed:13   Total:14
+Remediation: You can use AppArmor, Seccomp, SELinux and Linux Capabilities mechanisms to restrict containers abilities to utilize unwanted privileges.
+
+[control: Network policies] failed 😥
+Description: If no network policy is defined, attackers who gain access to a single container may use it to probe the network. This control lists all namespaces in which no network policies are defined.
+Failed:
+      Namespace - calico-system
+      Namespace - default
+      Namespace - kube-node-lease
+      Namespace - kube-public
+      Namespace - tigera-operator
+Summary - Passed:2   Excluded:0   Failed:5   Total:7
+Remediation: Define network policies or use similar network protection mechanisms.
+
+[control: Non-root containers] passed 👍
+Description: Potential attackers may gain access to a container and leverage its existing privileges to conduct an attack. Therefore, it is not recommended to deploy containers with root privileges unless it is absolutely necessary. This contol identifies all the Pods running as root or can escalate to root.
+Summary - Passed:14   Excluded:0   Failed:0   Total:14
+
+[control: Privileged container] failed 😥
+Description: Potential attackers may gain access to privileged containers and inherit access to the host resources. Therefore, it is not recommended to deploy privileged containers unless it is absolutely necessary. This control identifies all the privileged Pods.
+Failed:
+   Namespace kube-system
+      Deployment - omsagent-rs
+      DaemonSet - azure-ip-masq-agent
+      DaemonSet - kube-proxy
+      DaemonSet - omsagent
+   Namespace calico-system
+      DaemonSet - calico-node
+Summary - Passed:9   Excluded:0   Failed:5   Total:14
+Remediation: Remove privileged capabilities by setting the securityContext.privileged to false. If you must deploy a Pod as privileged, add other restriction to it, such as network policy, Seccomp etc and still remove all unnecessary capabilities. Use the exception mechanism to remove unnecessary notifocations.
+
+[control: Resource policies] failed 😥
+Description: CPU and memory resources should have a limit set for every container to prevent resource exhaustion. This control identifies all the Pods without resource limit definition.
+Failed:
+   Namespace calico-system
+      Deployment - calico-kube-controllers
+      Deployment - calico-typha
+      DaemonSet - calico-node
+   Namespace kube-system
+      Deployment - aci-connector-linux
+      DaemonSet - kube-proxy
+   Namespace tigera-operator
+      Deployment - tigera-operator
+Summary - Passed:8   Excluded:0   Failed:6   Total:14
+Remediation: Define LimitRange and ResourceQuota policies to limit resource usage for namespaces or nodes.
+
+[control: hostNetwork access] failed 😥
+Description: Potential attackers may gain access to a POD and inherit access to the entire host network. For example, in AWS case, they will have access to the entire VPC. This control identifies all the PODs with host network access enabled.
+Failed:
+   Namespace calico-system
+      Deployment - calico-typha
+      DaemonSet - calico-node
+   Namespace kube-system
+      Deployment - konnectivity-agent
+      DaemonSet - azure-ip-masq-agent
+      DaemonSet - kube-proxy
+   Namespace tigera-operator
+      Deployment - tigera-operator
+Summary - Passed:8   Excluded:0   Failed:6   Total:14
+Remediation: Only connect PODs to host network when it is necessary. If not, set the hostNetwork field of the pod spec to false, or completely remove it (false is the default). Whitelist only those PODs that must have access to host network by design.
+
+NSA FRAMEWORK
++-----------------------------------------------------------------------+------------------+--------------------+---------------+-----------+
+|                             CONTROL NAME                              | FAILED RESOURCES | EXCLUDED RESOURCES | ALL RESOURCES | % SUCCESS |
++-----------------------------------------------------------------------+------------------+--------------------+---------------+-----------+
+| Allow privilege escalation                                            |        13        |         0          |      18       |    27%    |
+| Allowed hostPath                                                      |        7         |         0          |      14       |    50%    |
+| Applications credentials in configuration files                       |        12        |         0          |      32       |    62%    |
+| Automatic mapping of service account                                  |        47        |         0          |      47       |    0%     |
+| CVE-2021-25741 - Using symlink for arbitrary host file system access. |        0         |         0          |      18       |   100%    |
+| CVE-2021-25742-nginx-ingress-snippet-annotation-vulnerability         |        0         |         0          |      27       |   100%    |
+| Cluster-admin binding                                                 |        4         |         0          |      153      |    97%    |
+| Container hostPort                                                    |        1         |         0          |      14       |    92%    |
+| Control plane hardening                                               |        0         |         0          |       0       |    NaN    |
+| Dangerous capabilities                                                |        0         |         0          |      14       |   100%    |
+| Exec into container                                                   |        6         |         0          |      153      |    96%    |
+| Exposed dashboard                                                     |        0         |         0          |      15       |   100%    |
+| Host PID/IPC privileges                                               |        0         |         0          |      14       |   100%    |
+| Immutable container filesystem                                        |        13        |         0          |      14       |    7%     |
+| Ingress and Egress blocked                                            |        14        |         0          |      15       |    6%     |
+| Insecure capabilities                                                 |        1         |         0          |      14       |    92%    |
+| Linux hardening                                                       |        13        |         0          |      14       |    7%     |
+| Network policies                                                      |        5         |         0          |       7       |    28%    |
+| Non-root containers                                                   |        0         |         0          |      14       |   100%    |
+| Privileged container                                                  |        5         |         0          |      14       |    64%    |
+| Resource policies                                                     |        6         |         0          |      14       |    57%    |
+| hostNetwork access                                                    |        6         |         0          |      14       |    57%    |
++-----------------------------------------------------------------------+------------------+--------------------+---------------+-----------+
+|                           RESOURCE SUMMARY                            |        81        |         0          |      253      |    67%    |
++-----------------------------------------------------------------------+------------------+--------------------+---------------+-----------+
