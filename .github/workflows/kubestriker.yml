@@ -28,15 +28,18 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2.2.2
         
-      - name: Install striker
+      - name: Config Pythong
         run: |
           python3 -m venv env
           source env/bin/activate
-      
-      - name: Install striker
+          
+      - name: Install SelectMenu
+        run: |
+          pip install SelectMenu --pre
+          
+      - name: Install prompt-toolkit
         run: |
           pip install prompt-toolkit==1.0.15 
-          pip install SelectMenu --pre
           
       - name: Install striker
         run: |
