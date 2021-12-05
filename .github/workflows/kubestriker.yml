@@ -32,7 +32,12 @@ jobs:
         run: |
           python3 -m venv env
           source env/bin/activate
-          
+      
+      - name: Install SelectMenu
+        run: |
+            which pip
+            which python
+        
       - name: Install SelectMenu
         run: |
           pip install --pre SelectMenu==1.0.0b2
