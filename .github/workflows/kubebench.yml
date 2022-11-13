@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: AZ Login
         run: az login --service-principal -u ${{ secrets.AZ_LOGIN }} -p ${{ secrets.AZ_PASSWORD }} --tenant ${{ secrets.AZ_TENANT }}
@@ -29,7 +29,7 @@ jobs:
         run: kubectl create -f ./kubebench/job.yaml
         
       - name: Wait / Sleep
-        uses: jakejarvis/wait-action@v0.1.0
+        uses: jakejarvis/wait-action@v0.1.1
         with:
          time: '30s'
         
@@ -40,7 +40,7 @@ jobs:
           cat kube-bench.txt
           
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           path: kube-bench.txt
           name: results    

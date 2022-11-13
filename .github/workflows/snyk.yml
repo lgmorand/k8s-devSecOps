@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - name: Retrieve source code
-       uses: actions/checkout@v2
+       uses: actions/checkout@v3
 
      - name: Create results folder
        run: mkdir results
@@ -25,7 +25,7 @@ jobs:
          
      - name: Upload artifact
        if: ${{ always() }}
-       uses: actions/upload-artifact@v2
+       uses: actions/upload-artifact@v3
        with:
         path: snyk.json     
         name: results   

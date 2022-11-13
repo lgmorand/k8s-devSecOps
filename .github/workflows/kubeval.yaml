@@ -1,0 +1,24 @@
+name: kubesec.io
+on:
+  workflow_dispatch:
+jobs:
+  Scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install kubeval
+        run: |
+          wget https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64.tar.gz
+          tar xf kubeval-linux-amd64.tar.gz
+          sudo cp kubeval /usr/local/bin
+
+      - name: Run kubeval 
+        run: kubeval ./manifests/test.yaml
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+         path: kubeval.txt
+         name: results 
