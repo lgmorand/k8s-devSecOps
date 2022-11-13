@@ -9,14 +9,6 @@ jobs:
     steps:
      - name: Retrieve source code
        uses: actions/checkout@v3
-     - name : Install trivy
-       run: |
-          sudo apt update
-          sudo apt install software-properties-common
-          sudo add-apt-repository ppa:deadsnakes/ppa
-          sudo apt install python3.7
-          sudo apt install python3-pip
-          sudo python3.7 -m pip install -U checkov 
      - name: Create results folder
        run: mkdir results
      - name: Run Trivy vulnerability scanner

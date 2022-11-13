@@ -1,4 +1,4 @@
-name: kubesec.io
+name: kubeval
 on:
   workflow_dispatch:
 jobs:
