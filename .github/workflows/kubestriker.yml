@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
 
       - name: AZ Login
         run: az login --service-principal -u ${{ secrets.AZ_LOGIN }} -p ${{ secrets.AZ_PASSWORD }} --tenant ${{ secrets.AZ_TENANT }}
@@ -26,7 +26,7 @@ jobs:
         run: az aks get-credentials --name ${{ github.event.inputs.CLUSTER_NAME }} --resource-group ${{ github.event.inputs.RESOURCE_GROUP }}
 
       - name: Setup Python
-        uses: actions/setup-python@v2.2.2
+        uses: actions/setup-python@v5
         with: 
           python-version: '3.8'
         

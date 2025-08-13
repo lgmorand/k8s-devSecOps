@@ -21,7 +21,7 @@ jobs:
        run: dockle goodwithtech/test-image:v1 2>&1 | tee -a ./results/dockle.txt
      - name: Upload artifact
        if: ${{ always() }}
-       uses: actions/upload-artifact@v3
+       uses: actions/upload-artifact@v4
        with:
         path: ./results
         name: results           
